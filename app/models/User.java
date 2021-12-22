@@ -4,7 +4,7 @@ import javax.persistence.*;
 import play.db.jpa.*;
 import play.db.jpa.*;
 import play.data.validation.*;
-
+//User model which contains login info and reminder hour integer 
 @Entity
 public class User extends Model {
 	

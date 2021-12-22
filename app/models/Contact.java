@@ -4,7 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 import play.data.validation.*;
 import play.db.jpa.*;
-
+//Contact model which holds the contacts for a user (1:M relationship) 
 @Entity
 public class Contact extends Model {
 	

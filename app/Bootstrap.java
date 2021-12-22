@@ -21,8 +21,7 @@ import models.*;
 import play.mvc.*;
 
 @OnApplicationStart
-@Every("1h") 
-
+@Every("1hr")
 public class Bootstrap extends Job {
  
     public void doJob() {
@@ -32,6 +31,7 @@ public class Bootstrap extends Job {
             Fixtures.loadModels("initial-data.yml");
         }
         
+        //This was the code I used to try and send email reminders, but I was not able to finish debugging before the deadline. uncommenting breaks the site at the moment.
 //        
 //        User user = User.find("byEmail", Security.connected()).first();
 //    	

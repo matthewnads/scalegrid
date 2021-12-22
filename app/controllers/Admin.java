@@ -12,6 +12,7 @@ import models.*;
 @With(Secure.class)
 public class Admin extends Controller {
     
+	//This function allows us to greet the current user 
     @Before
     static void setConnectedUser() {
         if(Security.isConnected()) {
@@ -20,6 +21,7 @@ public class Admin extends Controller {
         }
     }
  
+    //Using this to render a list of the contacts for a user 
     public static void index() {
     	String user = Security.connected();
         List<Contact> contacts = Contact.find("owner.email", user).fetch();
@@ -30,6 +32,7 @@ public class Admin extends Controller {
         render();
     }
      
+    //Saving the contact here (info recieved from form.html)
     public static void save(String name, String birthday) throws ParseException {
         // Create post
         SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy");  
