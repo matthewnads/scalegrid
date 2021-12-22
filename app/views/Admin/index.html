@@ -1,0 +1,12 @@
+#{extends 'admin.html' /}
+Welcome ${user}!
+<h4>Your contact list:</h4>
+#{list items:contacts, as:'contact'}
+    <p class="contact ${contact_parity}">
+        <a href="#">${contact.name}</a>
+    </p>
+#{/list}
+
+<p id="newContact" >
+    <a href="@{form()}"><span>+</span> add a new contact</a>
+</p>

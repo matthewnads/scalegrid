@@ -1,0 +1,35 @@
+#{extends 'admin.html' /}
+ 
+<h3>Write, <span>a new contact</span></h3>
+ 
+#{form @save()}
+ 
+    #{ifErrors}
+        <p class="error">
+            Please correct these errors.
+        </p>
+    #{/ifErrors}
+     
+    <p>
+        #{field 'name'}
+        <label>Contact Name:</label>
+        <input type="text" name="${field.name}" 
+            value="${contact?.name}" />
+        <span class="error">#{error 'contact.name' /}</span>
+        #{/field}
+    </p>
+ 
+    <p>
+        #{field 'birthday'}
+        <label>Birthday:</label>
+        <input type="date" name="${field.name}" 
+            value="${contact?.birthday}" />
+        <span class="error">#{error 'contact.birthday' /}</span>
+        #{/field}
+    </p>
+    
+    <p>
+        <input type="submit" value="Publish this contact" />
+    </p>
+    
+#{/form}
