@@ -10,7 +10,7 @@ If running from Eclipse, please run the command ```play eclipsify ./scalegrid/``
 
 Then ```> /eclipse/scalegrid.launch > Run As > scalegrid```
 
-Then, click "Add a user" and follow on screen instructions. 
+Then go to ```http://localhost:9000/``` > click "Add a user" and follow on screen instructions. 
 
 ### Highlights:
 
