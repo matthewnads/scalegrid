@@ -16,10 +16,14 @@ public class User extends Model {
     public String password;
     public String fullname;
     
-    public User(String email, String password, String fullname) {
+    @Required 
+    public int reminder; 
+    
+    public User(String email, String password, String fullname, int reminder) {
         this.email = email;
         this.password = password;
         this.fullname = fullname;
+        this.reminder = reminder; 
     }
     
     public static User connect(String email, String password) {
