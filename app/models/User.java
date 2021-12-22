@@ -2,10 +2,17 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 import play.db.jpa.*;
+import play.db.jpa.*;
+import play.data.validation.*;
 
 @Entity
 public class User extends Model {
+	
+	@Email
+	@Required 
 	public String email;
+	
+	@Required
     public String password;
     public String fullname;
     
@@ -17,5 +24,12 @@ public class User extends Model {
     
     public static User connect(String email, String password) {
         return find("byEmailAndPassword", email, password).first();
+    }
+    
+    @OneToMany(mappedBy="owner", cascade=CascadeType.ALL)
+    public List<Contact> contacts;
+    
+    public String toString() {
+        return email;
     }
 }
