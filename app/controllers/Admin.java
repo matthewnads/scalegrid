@@ -35,7 +35,7 @@ public class Admin extends Controller {
     //Saving the contact here (info recieved from form.html)
     public static void save(String name, String birthday) throws ParseException {
         // Create post
-        SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy");  
+        SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");  
 
     	Date converted = formatter.parse(birthday); 
         User owner = User.find("byEmail", Security.connected()).first();

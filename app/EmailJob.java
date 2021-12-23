@@ -3,6 +3,7 @@ import models.*;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Properties;
 
@@ -22,7 +23,7 @@ import play.libs.Mail;
 import controllers.*;
 
 //can change the param here for testing purposes
-@Every("1h")
+@Every("1mn")
 public class EmailJob extends Job {
 	
 	public void doJob() {
@@ -50,20 +51,23 @@ public class EmailJob extends Job {
       	int month = cal.get(Calendar.MONTH); 
       	int day = cal.get(Calendar.DAY_OF_MONTH);
       	
+      	
+      	
       	Date curr = new java.util.Date(); 
       	Calendar currCal = Calendar.getInstance();
       	currCal.setTime(curr);
-      	int currMonth = currCal.get(Calendar.MONTH); 
-      	int currDay = currCal.get(Calendar.DAY_OF_MONTH);
+      	int currYear = currCal.get(Calendar.YEAR);
+      	
+      	Date birthdate = new GregorianCalendar(currYear,month,day).getTime(); //this is the birthday in the current year
       	
       	Date newDate = DateUtils.addHours(new java.util.Date(), hours);
-    	Calendar newCal = Calendar.getInstance();
-      	newCal.setTime(newDate);
-      	int newMonth = newCal.get(Calendar.MONTH); 
-      	int newDay = newCal.get(Calendar.DAY_OF_MONTH);
-      	if(newMonth>=month && newDay >= day && month<=currMonth && day<=currDay && !contact.reminder) {
+      
+      	//in this condition, we check if the birthday is within the reminder timeframe by comparing it to newDate
+      	//if compareTo returns >=0, then the date is AFTER the argument date 
+      	//we do the same for the birthdate and the current date, to make sure we are not sending reminders for past birthdays
+      	if(newDate.compareTo(birthdate)>=0 && birthdate.compareTo(curr)>=0 && !contact.reminder) {
       		 try {
-      			 	contact.reminder = true; //i use this boolean to make sure the user doesn't get multiple emails. 
+      			 	contact.reminder = true; //i use this boolean to make sure the user doesn't get multiple emails reminders. 
 //      			There should be another job that resets to "false" each year, but i left it out since it seemed trivial for our usage 
       			 	contact.save(); //updating the db 
       			 	
