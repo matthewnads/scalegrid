@@ -6,14 +6,15 @@
 
 This submission uses Java 1.6 and Play 1.2.4. (There were some compatibility issues with 1.7)
 I ran the submission in Eclipse, but running using ```play run ./scalegrid``` from project parent folder works as well. 
-If running from Eclipse, please run the command ```play eclipsify ./scalegrid/``` and then import the project into Eclipse. 
-
+If running from Eclipse, please run the command ```play eclipsify ./scalegrid/``` from the project parent folder and then import the project into Eclipse. 
 Then ```> /eclipse/scalegrid.launch > Run As > scalegrid```
 
 To use: 
-1. Click "Add a user" and fill out the form and hit "Save".
-2. Navigate back to localhost:9000 and click "Log in". Log in with the credentials created in the previous step. 
-3. Add a contact by clicking "add new contact" and filling out the form. 
+1. Navigate to localhost:9000 in your browser 
+2. Click "Add a user" and fill out the form and hit "Save".
+3. Navigate back to localhost:9000 and click "Log in". Log in with the credentials created in the previous step. 
+4. Add a contact by clicking "add new contact" and filling out the form. 
+Note: if you are getting Null exceptions when trying to login or add a user, click "logout" which will clear the previous credentials
 
 
 ### Highlights:
