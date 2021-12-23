@@ -14,7 +14,7 @@ public class BasicTest extends UnitTest {
     @Test
     public void createAndRetrieveUser() {
         // Create a new user and save it
-        new User("bob@gmail.com", "secret", "Bob").save();
+        new User("bob@gmail.com", "secret", "Bob", 3).save();
         
         // Retrieve the user with e-mail address bob@gmail.com
         User bob = User.find("byEmail", "bob@gmail.com").first();
@@ -27,7 +27,7 @@ public class BasicTest extends UnitTest {
     @Test
     public void tryConnectAsUser() {
         // Create a new user and save it
-        new User("bob@gmail.com", "secret", "Bob").save();
+        new User("bob@gmail.com", "secret", "Bob", 3).save();
         
         // Test 
         assertNotNull(User.connect("bob@gmail.com", "secret"));
@@ -38,7 +38,7 @@ public class BasicTest extends UnitTest {
     @Test
     public void createPost() {
         // Create a new user and save it
-        User bob = new User("bob@gmail.com", "secret", "Bob").save();
+        User bob = new User("bob@gmail.com", "secret", "Bob", 3).save();
         
         // Create a new post
         new Contact(bob, "sam", new Date()).save();

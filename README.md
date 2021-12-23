@@ -10,7 +10,12 @@ If running from Eclipse, please run the command ```play eclipsify ./scalegrid/``
 
 Then ```> /eclipse/scalegrid.launch > Run As > scalegrid```
 
-Then, click "Add a user" and follow on screen instructions. 
+To use: 
+1. Click "Add a user" and fill out the form and hit "Save".
+2. Navigate back to localhost:9000 and click "Log in". Log in with the credentials created in the previous step. 
+3. Add a contact by clicking "add new contact" and filling out the form.  
+
+
 
 ### Highlights:
 
@@ -20,7 +25,12 @@ This package contains the different models used in the H2 in memory database (Co
 
 #### app/Bootstrap.java  
 
-Contains initial scripts that run to initialize database with dummy data for testing (from conf/initial-data.yml), and (a buggy) email reminder function 
+Contains initial scripts that run to initialize database with dummy data for testing (from conf/initial-data.yml)
+
+#### app/EmailJob.java
+
+This class runs a scheduled job using the @Every annotation to periodically check the contact lists for upcoming birthdays, and sends reminder emails if the birthday is within the reminder window.
+This job is scheduled to run each hour, but can be changed to a shorter time interval for testing purposes (eg. change to @Every("1mn") for every minute). 
 
 #### controllers Package
 
@@ -28,3 +38,5 @@ Contains all the controllers for the models and also Admin class, which allowed 
 
 #### views
 Contains all the different html files used to populate different views based on user inputs  
+
+

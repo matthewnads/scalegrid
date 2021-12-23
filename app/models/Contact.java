@@ -18,10 +18,13 @@ public class Contact extends Model {
 	@ManyToOne 
 	public User owner; 
 	
+	public boolean reminder; 
+	
 	public Contact(User owner, String name, Date birthday) {
 		this.owner = owner; 
 		this.name = name; 
 		this.birthday = birthday; 
+		this.reminder = false; 
 	}
 	
 	public String toString() {
