@@ -13,8 +13,7 @@ Then ```> /eclipse/scalegrid.launch > Run As > scalegrid```
 To use: 
 1. Click "Add a user" and fill out the form and hit "Save".
 2. Navigate back to localhost:9000 and click "Log in". Log in with the credentials created in the previous step. 
-3. Add a contact by clicking "add new contact" and filling out the form.  
-
+3. Add a contact by clicking "add new contact" and filling out the form. 
 
 
 ### Highlights:
@@ -38,5 +37,3 @@ Contains all the controllers for the models and also Admin class, which allowed 
 
 #### views
 Contains all the different html files used to populate different views based on user inputs  
-
-
