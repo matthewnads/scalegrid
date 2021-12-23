@@ -22,8 +22,8 @@ import org.apache.commons.mail.SimpleEmail;
 import play.libs.Mail; 
 import controllers.*;
 
-//can change the param here for testing purposes
-@Every("1mn")
+//can change the param here for testing purposes (eg. @Every("1mn"))
+@Every("1h")
 public class EmailJob extends Job {
 	
 	public void doJob() {
