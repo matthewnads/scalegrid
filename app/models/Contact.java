@@ -24,7 +24,7 @@ public class Contact extends Model {
 		this.owner = owner; 
 		this.name = name; 
 		this.birthday = birthday; 
-		this.reminder = false; 
+		this.reminder = false; //initializing to false so that we guarantee at least 1 reminder (see EmailJob.java for details on this process)
 	}
 	
 	public String toString() {

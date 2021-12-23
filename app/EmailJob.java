@@ -64,7 +64,7 @@ public class EmailJob extends Job {
       	if(newMonth>=month && newDay >= day && month<=currMonth && day<=currDay && !contact.reminder) {
       		 try {
       			 	contact.reminder = true; //i use this boolean to make sure the user doesn't get multiple emails. 
-//      			There should be another job that resets this each year, but i left it out since it seemed trivial for our usage 
+//      			There should be another job that resets to "false" each year, but i left it out since it seemed trivial for our usage 
       			 	contact.save(); //updating the db 
       			 	
       			 	//creating and sending email 
